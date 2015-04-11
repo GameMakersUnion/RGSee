@@ -150,16 +150,28 @@ Material:
       data:
         first:
           name: _RedPos
-        second: {r: -13.75, g: 3.68000007, b: 0, a: 0}
+        second: {r: 0, g: 0, b: 3.43000007, a: 0}
       data:
         first:
           name: _GreenPos
-        second: {r: 2.48000002, g: 5, b: 0, a: 0}
+        second: {r: 3.8499999, g: 0, b: -.25999999, a: 0}
       data:
         first:
           name: _BluePos
-        second: {r: -8.05697441, g: 12.1069698, b: 0, a: 0}
+        second: {r: 0, g: 0, b: 0, a: 0}
       data:
         first:
           name: _EmissionColorUI
         second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _WispCol1
+        second: {r: 1, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _WispCol2
+        second: {r: 0, g: 1, b: 0, a: 1}
+      data:
+        first:
+          name: _WispCol3
+        second: {r: 0, g: 0, b: 1, a: 1}

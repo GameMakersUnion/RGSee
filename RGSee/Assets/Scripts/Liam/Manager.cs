@@ -19,7 +19,10 @@ public class Manager : MonoBehaviour
     };
 
 	public GameObject playerRed, playerGreen, playerBlue;
-    public Material material;
+    Material material;
+	void Start () {
+		material = (Material)Resources.Load ("Materials/Canvas", typeof(Material));
+	}
     // Update is called once per frame
     void Update()
     {
