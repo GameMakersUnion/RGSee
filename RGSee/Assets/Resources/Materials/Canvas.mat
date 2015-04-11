@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Canvas
-  m_Shader: {fileID: 4800000, guid: 64e9a9e4cf3d1314aa0ab897f6bb9951, type: 3}
+  m_Name: New Material
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
@@ -92,10 +92,6 @@ Material:
         second: 0
       data:
         first:
-          name: _RevealRadius
-        second: 10
-      data:
-        first:
           name: _Parallax
         second: .0199999996
       data:
@@ -145,41 +141,5 @@ Material:
         second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
-          name: _DefaultCol
-        second: {r: .75, g: .75, b: .75, a: 1}
-      data:
-        first:
-          name: _RedPos
-<<<<<<< HEAD:RGSee/Assets/Materials/Canvas.mat
-        second: {r: -8.30000019, g: -.550000012, b: 0, a: 0}
-      data:
-        first:
-          name: _GreenPos
-        second: {r: -8.05697441, g: 12.1069698, b: 0, a: 0}
-=======
-        second: {r: 0, g: 0, b: 3.43000007, a: 0}
-      data:
-        first:
-          name: _GreenPos
-        second: {r: 3.8499999, g: 0, b: -.25999999, a: 0}
->>>>>>> dd242185b41a08794d25270598dd82b300ff5cb5:RGSee/Assets/Resources/Materials/Canvas.mat
-      data:
-        first:
-          name: _BluePos
-        second: {r: 0, g: 0, b: 0, a: 0}
-      data:
-        first:
           name: _EmissionColorUI
         second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _WispCol1
-        second: {r: 1, g: 0, b: 0, a: 1}
-      data:
-        first:
-          name: _WispCol2
-        second: {r: 0, g: 1, b: 0, a: 1}
-      data:
-        first:
-          name: _WispCol3
-        second: {r: 0, g: 0, b: 1, a: 1}
