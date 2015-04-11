@@ -8,7 +8,7 @@ public class ZackEnemySpawner : MonoBehaviour {
     float spawnRate = 3f;
 	// Use this for initialization
 	void Start () {
-        player = GameObject.Find("Player");
+        player = GameObject.Find("Player_Red");
 	}
 	
 	// Update is called once per frame

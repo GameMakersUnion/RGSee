@@ -246,6 +246,7 @@ GameObject:
   - 124: {fileID: 679188808}
   - 81: {fileID: 679188807}
   - 114: {fileID: 679188812}
+  - 114: {fileID: 679188813}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -332,6 +333,18 @@ MonoBehaviour:
   playerRed: {fileID: 486629262}
   playerGreen: {fileID: 1925507097}
   playerBlue: {fileID: 479170459}
+--- !u!114 &679188813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 679188806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d18f4b2f0896b349994673114f191b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 0}
 --- !u!1 &901985619
 GameObject:
   m_ObjectHideFlags: 0
