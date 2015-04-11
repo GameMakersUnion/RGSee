@@ -5,6 +5,7 @@ public class ZackEnemy : MonoBehaviour {
     private GameObject player;
     public float speed = 10f;
     private Color color;
+    public Manager.Colors lifeColor;
     float timer = 0f;
     Vector2 vel = Vector2.zero;
     float amp = 1f;
@@ -16,7 +17,8 @@ public class ZackEnemy : MonoBehaviour {
     // Use this for initialization
     void Start () {
         player = GameObject.Find("Player");
-        color = Color.red;
+        color = Manager.colors[lifeColor];
+        lifeColor = lifeColor;
         var r = GetComponent<SpriteRenderer>();
         r.color = color;
         amp = Random.Range(minAmp, maxAmp);
@@ -46,7 +48,12 @@ public class ZackEnemy : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.tag == "Wisp") {
-            Debug.Log("woot");
+            Manager.Colors other = coll.gameObject.GetComponent<ColorController>().color;
+            if (other == lifeColor)
+            {
+                Debug.Log("Damage: " + lifeColor);
+            }
+
             //coll.gameObject.SendMessage("ApplyDamage", 10);
         }
 

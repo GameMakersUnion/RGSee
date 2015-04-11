@@ -166,12 +166,12 @@ Material:
       data:
         first:
           name: _RedPos
-        second: {r: 0, g: 0, b: 3.43000007, a: 0}
+        second: {r: -13.04, g: -3.50999999, b: 0, a: 0}
       data:
         first:
           name: _GreenPos
-        second: {r: 3.8499999, g: 0, b: -.49000001, a: 0}
+        second: {r: 12.6000004, g: 12.6999998, b: 0, a: 0}
       data:
         first:
           name: _BluePos
-        second: {r: 0, g: 0, b: 0, a: 0}
+        second: {r: 9.88000011, g: -3.1099999, b: 0, a: 0}
