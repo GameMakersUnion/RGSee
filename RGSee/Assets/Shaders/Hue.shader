@@ -1,4 +1,4 @@
-﻿Shader "Custom/Reveal" {
+﻿Shader "Custom/Hue" {
 	Properties {
 		_MainTex ("Main Texture", 2D) = "white" {}
 		_DefaultCol ("Default Color", Color) = (0.75,0.75,0.75,1)
