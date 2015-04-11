@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11427640}
   - 58: {fileID: 5840534}
   m_Layer: 0
-  m_Name: Wisp
+  m_Name: DamageControllerTester
   m_TagString: Wisp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: a5d94a36e91e847939a0a342981c9120, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1

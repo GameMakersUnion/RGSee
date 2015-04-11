@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Wisp : MonoBehaviour {
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(ColorController))]
+public class DamageController : MonoBehaviour {
     private float radius_ = 3.2f;
     private CircleCollider2D circleCollider;
 
