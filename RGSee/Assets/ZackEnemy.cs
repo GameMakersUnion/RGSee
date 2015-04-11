@@ -43,4 +43,11 @@ public class ZackEnemy : MonoBehaviour {
         //transform.position = transform.position + (dir.normalized * speed / 100f).ToVector3();
     }
 
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "Enemy")
+            coll.gameObject.SendMessage("ApplyDamage", 10);
+
+    }
+
 }
