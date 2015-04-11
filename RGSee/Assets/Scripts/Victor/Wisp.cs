@@ -2,10 +2,12 @@
 using System.Collections;
 
 public class Wisp : MonoBehaviour {
-    private float radius_ = 1f;
+    private float radius_ = 3.2f;
     private CircleCollider2D circleCollider;
 
-    public float radius { get; set; }private Rigidbody2D rigidbody2D;
+    public float radius { get { return this.radius_; } set { this.radius_ = value; } }
+
+    private Rigidbody2D rigidbody2D;
 
 
     // Use this for initialization
@@ -16,7 +18,7 @@ public class Wisp : MonoBehaviour {
             //rigidbody2D = gameObject.AddComponent< Rigidbody2D> as Rigidbody2D; // Doesn't work
             Debug.Log("You forgot the Circle Collider Component, noob fix plox");
         }
-        circleCollider.radius = radius*radius;
+        circleCollider.radius = radius;
     }
 	
 	// Update is called once per frame
