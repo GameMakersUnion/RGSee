@@ -150,15 +150,23 @@ Material:
       data:
         first:
           name: _RedPos
+<<<<<<< HEAD:RGSee/Assets/Materials/Canvas.mat
         second: {r: -8.30000019, g: -.550000012, b: 0, a: 0}
       data:
         first:
           name: _GreenPos
         second: {r: -8.05697441, g: 12.1069698, b: 0, a: 0}
+=======
+        second: {r: 0, g: 0, b: 3.43000007, a: 0}
+      data:
+        first:
+          name: _GreenPos
+        second: {r: 3.8499999, g: 0, b: -.25999999, a: 0}
+>>>>>>> dd242185b41a08794d25270598dd82b300ff5cb5:RGSee/Assets/Resources/Materials/Canvas.mat
       data:
         first:
           name: _BluePos
-        second: {r: -8.05697441, g: 12.1069698, b: 0, a: 0}
+        second: {r: 0, g: 0, b: 0, a: 0}
       data:
         first:
           name: _EmissionColorUI
