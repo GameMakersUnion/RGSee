@@ -92,10 +92,6 @@ Material:
         second: 0
       data:
         first:
-          name: _RevealRadius
-        second: 10
-      data:
-        first:
           name: _Parallax
         second: .0199999996
       data:
@@ -134,6 +130,10 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _RevealRadius
+        second: 10
     m_Colors:
       data:
         first:
@@ -145,21 +145,21 @@ Material:
         second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
+          name: _EmissionColorUI
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
           name: _DefaultCol
         second: {r: .75, g: .75, b: .75, a: 1}
       data:
         first:
           name: _RedPos
-        second: {r: 0, g: 0, b: 3.43000007, a: 0}
+        second: {r: -.129999995, g: 0, b: 3.43000007, a: 0}
       data:
         first:
           name: _GreenPos
-        second: {r: 3.8499999, g: 0, b: 1.73000002, a: 0}
+        second: {r: 3.8499999, g: 0, b: 0, a: 0}
       data:
         first:
           name: _BluePos
         second: {r: 0, g: 0, b: 0, a: 0}
-      data:
-        first:
-          name: _EmissionColorUI
-        second: {r: 1, g: 1, b: 1, a: 1}

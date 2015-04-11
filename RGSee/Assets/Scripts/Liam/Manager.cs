@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class PlayerPosition : MonoBehaviour
+public class Manager : MonoBehaviour
 {
 
     public enum Colors { Red, Blue, Green, Magenta, Cyan, Yellow, White, Black, Gray }
-    public Dictionary<Colors, Color> colors = new Dictionary<Colors, Color>()
+    public static Dictionary<Colors, Color> colors = new Dictionary<Colors, Color>()
     {
         { Colors.Red, new Color(1f,0f,0f) },
         { Colors.Green, new Color(0f,1f,0f) },
@@ -26,10 +26,10 @@ public class PlayerPosition : MonoBehaviour
     {
 
     }
-
     // Update is called once per frame
     void Update()
     {
+        //Player Position
         foreach (Material mat in materials)
         {
             mat.SetVector("_RedPos", playerRed.transform.position);
