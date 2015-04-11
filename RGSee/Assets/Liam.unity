@@ -330,8 +330,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497416a64bc9ecf4faade2091721be28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materials:
-  - {fileID: 2100000, guid: a5d94a36e91e847939a0a342981c9120, type: 2}
   playerRed: {fileID: 486629262}
   playerGreen: {fileID: 1925507097}
   playerBlue: {fileID: 479170459}
@@ -375,7 +373,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: a5d94a36e91e847939a0a342981c9120, type: 2}
+  - {fileID: 2100000, guid: 1059399377d61f84d8f010a9db755e0a, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
