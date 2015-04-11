@@ -18,23 +18,13 @@ public class Manager : MonoBehaviour
         { Colors.Gray, new Color(0.5f, 0.5f, 0.5f) },
     };
 
-
-    public Material[] materials;
-    public GameObject playerRed, playerGreen, playerBlue;
-    // Use this for initialization
-    void Start()
-    {
-
-    }
+	public GameObject playerRed, playerGreen, playerBlue;
+    public Material material;
     // Update is called once per frame
     void Update()
     {
-        //Player Position
-        foreach (Material mat in materials)
-        {
-            mat.SetVector("_RedPos", playerRed.transform.position);
-            mat.SetVector("_GreenPos", playerGreen.transform.position);
-            mat.SetVector("_BluePos", playerBlue.transform.position);
-        }
+    	material.SetVector("_RedPos", playerRed.transform.position);
+        material.SetVector("_GreenPos", playerGreen.transform.position);
+        material.SetVector("_BluePos", playerBlue.transform.position);
     }
 }

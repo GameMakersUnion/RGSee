@@ -3,6 +3,11 @@
 		_MainTex ("Main Texture", 2D) = "white" {}
 		_DefaultCol ("Default Color", Color) = (0.75,0.75,0.75,1)
 		_RevealRadius ("Reveal Radius", Float) = 10.0
+		
+		_WispCol1 ("Wisp Color 1", Color) = (1,0,0,1)
+		_WispCol2 ("Wisp Color 2", Color) = (0,1,0,1)
+		_WispCol3 ("Wisp Color 3", Color) = (0,0,1,1)
+		
 		_RedPos ("Red Position", vector) = (0,0,0,0)
 		_GreenPos ("Green Position", vector) = (0,0,0,0)
 		_BluePos ("Blue Position", vector) = (0,0,0,0)
@@ -22,6 +27,10 @@
 			uniform float3 _GreenPos;
 			uniform float3 _BluePos;			
 			uniform float _RevealRadius;
+			
+			uniform fixed4 _WispCol1;
+			uniform fixed4 _WispCol2;
+			uniform fixed4 _WispCol3;
 			
 			uniform fixed4 _DefaultCol;
 			uniform sampler2D _MainTex;
@@ -45,9 +54,9 @@
 			}
 			// FRAGMENT SHADER
 			fixed4 FS_MAIN (FS_INPUT i) : COLOR {
-				fixed4 R = fixed4(1,0,0,1);
-				fixed4 G = fixed4(0,1,0,1);
-				fixed4 B = fixed4(0,0,1,1);
+				fixed4 R = _WispCol1;
+				fixed4 G = _WispCol2;
+				fixed4 B = _WispCol3;
 				fixed4 outputCol = R + G + B;
 
 				float3 redVect = (_RedPos - i.worldPos.xyz);
