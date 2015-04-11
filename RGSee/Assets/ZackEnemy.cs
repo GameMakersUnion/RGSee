@@ -8,16 +8,25 @@ public class ZackEnemy : MonoBehaviour {
     float timer = 0f;
     Vector2 vel = Vector2.zero;
     float amp = 1f;
+    public float maxAmp = 2f;
+    public float minAmp = 0.5f;
     float period = 20f;
+    private Rigidbody2D rigidbody2D;
+
     // Use this for initialization
     void Start () {
         player = GameObject.Find("Player");
         color = Color.red;
         var r = GetComponent<SpriteRenderer>();
         r.color = color;
-        amp = Random.Range(0.5f, 2f);
+        amp = Random.Range(minAmp, maxAmp);
         period = Random.Range(1f, 4f);
         Debug.Log("amp: " + amp + ", period: " + period);
+        rigidbody2D = GetComponent<Rigidbody2D>();
+		if (rigidbody2D == null) {
+            //rigidbody2D = gameObject.AddComponent< Rigidbody2D> as Rigidbody2D; // Doesn't work
+            Debug.Log("You forgot the Rigidbody2d Component, noob fix plox");
+        }
     }
 	
 	// Update is called once per frame
@@ -27,7 +36,11 @@ public class ZackEnemy : MonoBehaviour {
         float angle = amp * Mathf.Cos(timer*period);
         dir = dir.Rotate(angle);
         //float dist = dir.magnitude;
-        transform.position = transform.position + (dir.normalized * speed / 100f).ToVector3();
+        if(rigidbody2D != null) {
+            //rigidbody2D.AddForce(dir.normalized * speed / 100f);
+            rigidbody2D.velocity = (dir.normalized * speed / 100f);
+        }
+        //transform.position = transform.position + (dir.normalized * speed / 100f).ToVector3();
     }
 
 }
