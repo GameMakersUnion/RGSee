@@ -133,7 +133,7 @@ Material:
       data:
         first:
           name: _RevealRadius
-        second: 10
+        second: 9
     m_Colors:
       data:
         first:
@@ -166,12 +166,12 @@ Material:
       data:
         first:
           name: _RedPos
-        second: {r: -13.04, g: -3.50999999, b: 0, a: 0}
+        second: {r: -.839999974, g: -4.0999999, b: 0, a: 0}
       data:
         first:
           name: _GreenPos
-        second: {r: 12.6000004, g: 12.6999998, b: 0, a: 0}
+        second: {r: -2.6099999, g: -7.15999985, b: 0, a: 0}
       data:
         first:
           name: _BluePos
-        second: {r: 9.88000011, g: -3.1099999, b: 0, a: 0}
+        second: {r: 1.35000002, g: -6.73000002, b: 0, a: 0}
