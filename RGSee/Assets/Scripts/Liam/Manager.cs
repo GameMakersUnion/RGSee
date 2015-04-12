@@ -18,6 +18,8 @@ public class Manager : MonoBehaviour
         /*{ Colors.Gray, new Color(0.5f, 0.5f, 0.5f) },*/
     };
 
+    public enum PlayerNum { One, Two, Three, Four };
+
 	public GameObject playerRed, playerGreen, playerBlue;
     Material material;
 	void Start () {
