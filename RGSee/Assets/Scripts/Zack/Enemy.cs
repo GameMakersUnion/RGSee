@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour
+{
     private GameObject home;
     public float speed = 10f;
     public Manager.Colors color;
@@ -13,19 +14,25 @@ public class Enemy : MonoBehaviour {
     public float minAmp = 0.5f;
     float period = 20f;
     private Rigidbody2D rigidbody2D;
-    private bool red,green,blue;
+    private bool red, green, blue;
     private List<Manager.Colors> attackers;
+    GameObject[] players;
 
     // Use this for initialization
     void Start()
     {
+        players = new GameObject[] {
+            GameObject.Find("Player0"),
+            GameObject.Find("Player1"),
+            GameObject.Find("Player2")
+        };
         home = GameObject.Find("Home");
         var r = GetComponent<SpriteRenderer>();
         color = (Manager.Colors)Random.Range(0, System.Enum.GetValues(typeof(Manager.Colors)).Length);
         r.color = Manager.colors[color];
         amp = Random.Range(minAmp, maxAmp);
         period = Random.Range(1f, 4f);
-      
+
         rigidbody2D = GetComponent<Rigidbody2D>();
         if (rigidbody2D == null)
         {
@@ -51,76 +58,28 @@ public class Enemy : MonoBehaviour {
         }
         //transform.position = transform.position + (dir.normalized * speed / 100f).ToVector3();
 
-        
-      
-            if (red && blue && green && color == Manager.Colors.White)
-                Destroy(gameObject);
-            else if(red && blue && color == Manager.Colors.Magenta)
-                Destroy(gameObject);
-            else if(green && blue && color == Manager.Colors.Cyan)
-                Destroy(gameObject);
-            else if (red && green && color == Manager.Colors.Yellow)
-                Destroy(gameObject);
-        else
+        Color finalColor = new Color(0, 0, 0);
+        float redDist = (transform.position - players[0].transform.position).magnitude;
+        float greenDist = (transform.position - players[1].transform.position).magnitude;
+        float blueDist = (transform.position - players[2].transform.position).magnitude;
+        float rad = 3f;
+        if (redDist <= rad)
         {
-            switch (color)
-            {
-                case Manager.Colors.Red:
-                    if (red == true)
-                        Destroy(gameObject);
-                    break;
-                case Manager.Colors.Green:
-                    if (green == true)
-                        Destroy(gameObject);
-                    break;
-                case Manager.Colors.Blue:
-                    if (blue == true)
-                        Destroy(gameObject);
-                    break;
-            }
+            finalColor += Manager.colors[Manager.Colors.Red];
         }
-
-    }
-
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Player")
+        if (greenDist <= rad)
         {
-            Manager.Colors other = col.gameObject.GetComponent<PlayerScript>().color;
-            switch (other)
-            {
-                case Manager.Colors.Red:
-                    red = true;
-                    break;
-                case Manager.Colors.Green:
-                    green = true;
-                    break;
-                case Manager.Colors.Blue:
-                    blue = true;
-                    break;
-            }
-            
-          
+            finalColor += Manager.colors[Manager.Colors.Green];
         }
-
-    }
-
-    void OnTriggerExit2D(Collider2D col)
-    {
-
-        Manager.Colors other = col.gameObject.GetComponent<PlayerScript>().color;
-        switch (other)
+        if (blueDist <= rad)
         {
-            case Manager.Colors.Red:
-                red = false;
-                break;
-            case Manager.Colors.Green:
-                green = false;
-                break;
-            case Manager.Colors.Blue:
-                blue = false;
-                break;
+            finalColor += Manager.colors[Manager.Colors.Blue];
         }
-
+        finalColor.a = 1;
+        Debug.Log(finalColor);
+        if (Manager.colors[color] == finalColor)
+        {
+            Destroy(gameObject);
+        }
     }
 }
