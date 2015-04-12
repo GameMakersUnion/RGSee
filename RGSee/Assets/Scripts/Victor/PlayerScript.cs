@@ -10,7 +10,7 @@ public class PlayerScript : MonoBehaviour {
     public float radius { get { return this.radius_; } set { this.radius_ = value; } }
     public Manager.Colors color { get { return this.color_; } set { this.color_ = value; } }
 
-    private Rigidbody2D rigidbody2D;
+    private new Rigidbody2D rigidbody2D;
 
     public float speed = 10, deadzone = 0.1f;
 
@@ -18,11 +18,11 @@ public class PlayerScript : MonoBehaviour {
     void Start()
     {
         circleCollider = GetComponent<CircleCollider2D>();
-        if (rigidbody2D == null)
-        {
-            //rigidbody2D = gameObject.AddComponent< Rigidbody2D> as Rigidbody2D; // Doesn't work
-            Debug.Log("You forgot the Circle Collider Component, noob fix plox");
-        }
+        rigidbody2D = GetComponent<Rigidbody2D>();
+        //if (rigidbody2D == null)
+        //{
+        //    rigidbody2D = gameObject.AddComponent<Rigidbody2D>();
+        //}
         circleCollider.radius = radius;
     }
 
@@ -38,7 +38,7 @@ public class PlayerScript : MonoBehaviour {
         float y = Input.GetAxis(vert) * speed / 100f;
         if (Mathf.Abs(x) < deadzone) x = 0;
         if (Mathf.Abs(y) < deadzone) y = 0;
-        Debug.Log(x + "   " + y);
+        //Debug.Log(x + "   " + y);
         transform.position = new Vector3(transform.position.x + x, transform.position.y + y, transform.position.z);
         //Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
     }
