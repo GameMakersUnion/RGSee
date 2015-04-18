@@ -16,15 +16,15 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rigidbody2D;
     private bool red, green, blue;
     private List<Manager.Colors> attackers;
-    GameObject[] players;
+    GameObject[] players; 
 
     // Use this for initialization
     void Start()
     {
         players = new GameObject[] {
-            GameObject.Find("Player0"),
             GameObject.Find("Player1"),
-            GameObject.Find("Player2")
+            GameObject.Find("Player2"),
+            GameObject.Find("Player3")
         };
         home = GameObject.Find("Home");
         var r = GetComponent<SpriteRenderer>();
@@ -58,28 +58,32 @@ public class Enemy : MonoBehaviour
         }
         //transform.position = transform.position + (dir.normalized * speed / 100f).ToVector3();
 
-        Color finalColor = new Color(0, 0, 0);
-        float redDist = (transform.position - players[0].transform.position).magnitude;
-        float greenDist = (transform.position - players[1].transform.position).magnitude;
-        float blueDist = (transform.position - players[2].transform.position).magnitude;
-        float rad = 3f;
-        if (redDist <= rad)
-        {
-            finalColor += Manager.colors[Manager.Colors.Red];
-        }
-        if (greenDist <= rad)
-        {
-            finalColor += Manager.colors[Manager.Colors.Green];
-        }
-        if (blueDist <= rad)
-        {
-            finalColor += Manager.colors[Manager.Colors.Blue];
-        }
-        finalColor.a = 1;
-        Debug.Log(finalColor);
-        if (Manager.colors[color] == finalColor)
-        {
-            Destroy(gameObject);
-        }
+		Color finalColor = new Color(0, 0, 0);
+		
+		float playerOneRad = players[0].GetComponent<PlayerScript>().radius;
+		float playerTwoRad = players[1].GetComponent<PlayerScript>().radius;
+		float playerThreeRad = players[2].GetComponent<PlayerScript>().radius;
+
+		float playerOneDist = (transform.position - players[0].transform.position).magnitude;
+		float playerTwoDist = (transform.position - players[1].transform.position).magnitude;
+		float playerThreeDist = (transform.position - players[2].transform.position).magnitude;
+		
+		if (playerOneDist <= playerOneRad)
+		{
+			finalColor += Manager.colors[players[0].GetComponent<PlayerScript>().color];
+		}
+		if (playerTwoDist <= playerTwoRad)
+		{
+			finalColor += Manager.colors[players[1].GetComponent<PlayerScript>().color];
+		}
+		if (playerThreeDist <= playerThreeRad)
+		{
+			finalColor += Manager.colors[players[2].GetComponent<PlayerScript>().color];
+		}
+		finalColor.a = 1;
+		if (Manager.colors[color] == finalColor)
+		{
+			Destroy(gameObject);
+		}
     }
 }

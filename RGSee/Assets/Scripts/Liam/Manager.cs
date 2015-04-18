@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+[ExecuteInEditMode]
 public class Manager : MonoBehaviour
 {
 
@@ -25,11 +26,4 @@ public class Manager : MonoBehaviour
 	void Start () {
 		material = (Material)Resources.Load ("Materials/Canvas", typeof(Material));
 	}
-    // Update is called once per frame
-    void Update()
-    {
-    	material.SetVector("_RedPos", playerRed.transform.position);
-        material.SetVector("_GreenPos", playerGreen.transform.position);
-        material.SetVector("_BluePos", playerBlue.transform.position);
-    }
 }

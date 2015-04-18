@@ -1,16 +1,19 @@
 ﻿Shader "Custom/Hue" {
 	Properties {
-		_MainTex ("Main Texture", 2D) = "white" {}
-		_DefaultCol ("Default Color", Color) = (0.75,0.75,0.75,1)
-		_RevealRadius ("Reveal Radius", Float) = 10.0
+		_MainTex ("Main Texture1", 2D) = "white" {}
+		_DefaultCol ("Default Color", Color) = (1,1,1,1)
 		
-		_WispCol1 ("Wisp Color 1", Color) = (1,0,0,1)
-		_WispCol2 ("Wisp Color 2", Color) = (0,1,0,1)
-		_WispCol3 ("Wisp Color 3", Color) = (0,0,1,1)
+		_OneCol ("Player One Color", Color) = (1,1,1,1)
+		_TwoCol ("Player Two Color", Color) = (1,1,1,1)
+		_ThreeCol ("Player Three Color", Color) = (1,1,1,1)
 		
-		_RedPos ("Red Position", vector) = (0,0,0,0)
-		_GreenPos ("Green Position", vector) = (0,0,0,0)
-		_BluePos ("Blue Position", vector) = (0,0,0,0)
+		_OneRad ("Player One Radius", Float) = 1
+		_TwoRad ("Player Two Radius", Float) = 1
+		_ThreeRad ("Player Three Radius", Float) = 1
+		
+		_OnePos ("Player One Position", vector) = (0,0,0,0)
+		_TwoPos ("Player Two Position", vector) = (0,0,0,0)
+		_ThreePos ("Player Three Position", vector) = (0,0,0,0)
 	}
 	SubShader {
 		Tags { "RenderType"="Opaque" }
@@ -23,14 +26,17 @@
 			#include "UnityCG.cginc"
 			
 			// User defined variables
-			uniform float3 _RedPos;
-			uniform float3 _GreenPos;
-			uniform float3 _BluePos;			
-			uniform float _RevealRadius;
+			uniform float3 _OnePos;
+			uniform float3 _TwoPos;
+			uniform float3 _ThreePos;
 			
-			uniform fixed4 _WispCol1;
-			uniform fixed4 _WispCol2;
-			uniform fixed4 _WispCol3;
+			uniform float _OneRad;
+			uniform float _TwoRad;
+			uniform float _ThreeRad;		
+			
+			uniform fixed4 _OneCol;
+			uniform fixed4 _TwoCol;
+			uniform fixed4 _ThreeCol;
 			
 			uniform fixed4 _DefaultCol;
 			uniform sampler2D _MainTex;
@@ -54,33 +60,26 @@
 			}
 			// FRAGMENT SHADER
 			fixed4 FS_MAIN (FS_INPUT i) : COLOR {
-				fixed4 R = _WispCol1;
-				fixed4 G = _WispCol2;
-				fixed4 B = _WispCol3;
-				fixed4 outputCol = R + G + B;
+				fixed4 outputCol = _OneCol + _TwoCol + _ThreeCol;
 
-				float3 redVect = (_RedPos - i.worldPos.xyz);
-				float3 greenVect = (_GreenPos - i.worldPos.xyz);
-				float3 blueVect = (_BluePos - i.worldPos.xyz);
+				float oneDist = length(_OnePos - i.worldPos.xyz);
+				float twoDist = length(_TwoPos - i.worldPos.xyz);
+				float threeDist = length(_ThreePos - i.worldPos.xyz);
 				
-				float redDist = redVect.x * redVect.x + redVect.y * redVect.y + redVect.z * redVect.z;
-				float greenDist = greenVect.x * greenVect.x + greenVect.y * greenVect.y + greenVect.z * greenVect.z;
-				float blueDist = blueVect.x * blueVect.x + blueVect.y * blueVect.y + blueVect.z * blueVect.z;
-				
-				if (redDist < _RevealRadius && greenDist < _RevealRadius && blueDist < _RevealRadius) {
-					outputCol = R + G + B;
-				} else if (redDist < _RevealRadius && greenDist < _RevealRadius) {
-					outputCol = R + G;
-				} else if (redDist < _RevealRadius && blueDist < _RevealRadius) {
-					outputCol = R + B;
-				} else if (greenDist < _RevealRadius && blueDist < _RevealRadius) {
-					outputCol = G + B;
-				} else if (redDist < _RevealRadius) {
-					outputCol = R;
-				} else if (greenDist < _RevealRadius) {
-					outputCol = G;
-				} else if (blueDist < _RevealRadius) {
-					outputCol = B;
+				if (oneDist < _OneRad && twoDist < _TwoRad && threeDist < _ThreeRad) {
+					outputCol = _OneCol + _TwoCol + _ThreeCol;
+				} else if (oneDist < _OneRad && twoDist < _TwoRad) {
+					outputCol = _OneCol + _TwoCol;
+				} else if (oneDist < _OneRad && threeDist < _ThreeRad) {
+					outputCol = _OneCol + _ThreeCol;
+				} else if (twoDist < _TwoRad && threeDist < _ThreeRad) {
+					outputCol = _TwoCol + _ThreeCol;
+				} else if (oneDist < _OneRad) {
+					outputCol = _OneCol;
+				} else if (twoDist < _TwoRad) {
+					outputCol = _TwoCol;
+				} else if (threeDist < _ThreeRad) {
+					outputCol = _ThreeCol;
 				} else {
 					outputCol = _DefaultCol;				
 				}

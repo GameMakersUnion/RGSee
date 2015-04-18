@@ -4,26 +4,47 @@ using System.Collections;
 public class PlayerScript : MonoBehaviour {
     public Manager.PlayerNum playerNum;
     private float radius_ = 3f;
-    public Manager.Colors color_ = Manager.Colors.Red;
+    private Manager.Colors color_;
     private CircleCollider2D circleCollider;
 
-    public float radius { get { return this.radius_; } set { this.radius_ = value; } }
-    public Manager.Colors color { get { return this.color_; } set { this.color_ = value; } }
+    public float radius { get { return this.radius_; } 
+		set { 
+			this.radius_ = value; 
+			SetRadius(value);
+		} 
+	}
+
+	//figure out why not exposed in inspector
+    public Manager.Colors color { get { return this.color_; } 
+		set {
+			this.color_ = value; 
+			SetColor(value);
+		} 
+	}
+
 
     private new Rigidbody2D rigidbody2D;
 
     public float speed = 10, deadzone = 0.1f;
 
+	Material canvasMat;
+
+	private void SetRadius (float radius) {
+		string name = "_" + playerNum + "Rad";
+		canvasMat.SetFloat (name, radius);
+	}
+
+	private void SetColor (Manager.Colors color) {
+		string name = "_" + playerNum + "Col";
+		canvasMat.SetColor (name, Manager.colors[color]);
+	}
+
     // Use this for initialization
     void Start()
     {
-        circleCollider = GetComponent<CircleCollider2D>();
-        rigidbody2D = GetComponent<Rigidbody2D>();
-        //if (rigidbody2D == null)
-        //{
-        //    rigidbody2D = gameObject.AddComponent<Rigidbody2D>();
-        //}
-        circleCollider.radius = radius;
+		canvasMat = (Material)Resources.Load ("Materials/canvas", typeof(Material));
+		SetRadius (radius_);
+		SetColor ( (Manager.Colors)playerNum );
     }
 
     // Update is called once per frame
@@ -41,6 +62,8 @@ public class PlayerScript : MonoBehaviour {
         //Debug.Log(x + "   " + y);
         transform.position = new Vector3(transform.position.x + x, transform.position.y + y, transform.position.z);
         //Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+		string name1 = "_" + playerNum + "Pos";
+		canvasMat.SetVector (name1, transform.position);
     }
     string getAxisString(string axis, int playernum, string leftright)
     {
