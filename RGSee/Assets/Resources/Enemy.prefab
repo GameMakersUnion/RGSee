@@ -10,8 +10,8 @@ GameObject:
   - 4: {fileID: 419970}
   - 212: {fileID: 21222962}
   - 50: {fileID: 5060292}
-  - 61: {fileID: 6144392}
   - 114: {fileID: 11462804}
+  - 58: {fileID: 5886748}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -46,8 +46,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!61 &6144392
-BoxCollider2D:
+--- !u!58 &5886748
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -58,7 +58,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1.27999997, y: 1.27999997}
+  m_Radius: .639999986
 --- !u!114 &11462804
 MonoBehaviour:
   m_ObjectHideFlags: 1

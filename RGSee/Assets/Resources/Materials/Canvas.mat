@@ -18,7 +18,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 10305, guid: 0000000000000000f000000000000000, type: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -77,6 +77,13 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _MainTex1
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -93,7 +100,7 @@ Material:
       data:
         first:
           name: _RevealRadius
-        second: 9
+        second: 10
       data:
         first:
           name: _Parallax
@@ -134,6 +141,30 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _RedRad
+        second: 1
+      data:
+        first:
+          name: _GreenRad
+        second: 1
+      data:
+        first:
+          name: _BlueRad
+        second: 1
+      data:
+        first:
+          name: _OneRad
+        second: 3
+      data:
+        first:
+          name: _TwoRad
+        second: 3
+      data:
+        first:
+          name: _ThreeRad
+        second: 3
     m_Colors:
       data:
         first:
@@ -146,7 +177,7 @@ Material:
       data:
         first:
           name: _DefaultCol
-        second: {r: .75, g: .75, b: .75, a: 1}
+        second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
           name: _WispCol1
@@ -162,16 +193,52 @@ Material:
       data:
         first:
           name: _RedPos
-        second: {r: 1.39999998, g: -2.20000005, b: 0, a: 0}
+        second: {r: -2.99999928, g: -.499999911, b: 0, a: 0}
       data:
         first:
           name: _GreenPos
-        second: {r: -1.26999998, g: 1.75999999, b: 0, a: 0}
+        second: {r: -10.3000031, g: 3.89999866, b: 0, a: 0}
       data:
         first:
           name: _BluePos
-        second: {r: -1.17999995, g: -5.44000006, b: 0, a: 0}
+        second: {r: 0, g: 0, b: 0, a: 0}
       data:
         first:
           name: _EmissionColorUI
         second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _RedCol
+        second: {r: 1, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _GreenCol
+        second: {r: 0, g: 1, b: 0, a: 1}
+      data:
+        first:
+          name: _BlueCol
+        second: {r: 0, g: 0, b: 1, a: 1}
+      data:
+        first:
+          name: _OneCol
+        second: {r: 1, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _TwoCol
+        second: {r: 0, g: 0, b: 1, a: 1}
+      data:
+        first:
+          name: _ThreeCol
+        second: {r: 0, g: 1, b: 0, a: 1}
+      data:
+        first:
+          name: _OnePos
+        second: {r: 0, g: 0, b: 0, a: 0}
+      data:
+        first:
+          name: _TwoPos
+        second: {r: 0, g: 0, b: 0, a: 0}
+      data:
+        first:
+          name: _ThreePos
+        second: {r: 0, g: 0, b: 0, a: 0}
