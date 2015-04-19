@@ -28,4 +28,4 @@ https://youtu.be/3R-XjwnBMMA
 
   Left running for an hour
   ![readme image][7]
-  [7]: https://raw.githubusercontent.com/GameMakersUnion/RGSee/master/README/README_ALPHA_07.png 
+  [7]: https://raw.githubusercontent.com/GameMakersUnion/RGSee/master/README/README_ALPHA_07.jpg 
